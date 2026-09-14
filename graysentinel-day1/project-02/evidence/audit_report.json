@@ -1,0 +1,89 @@
+{
+  "target": "/home/claude/test_repo",
+  "started_at": "2026-09-14T09:50:20.754623+00:00",
+  "files_scanned": [
+    "/home/claude/test_repo/.github/workflows/clean_ci.yml",
+    "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml"
+  ],
+  "findings": [
+    {
+      "rule_id": "SECRET-001",
+      "severity": "CRITICAL",
+      "title": "Possible hardcoded secret: AWS secret access key",
+      "detail": "A value matching a credential pattern was found directly in the workflow file instead of referenced via ${{ secrets.NAME }}.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 20
+    },
+    {
+      "rule_id": "SECRET-001",
+      "severity": "CRITICAL",
+      "title": "Possible hardcoded secret: AWS access key ID",
+      "detail": "A value matching a credential pattern was found directly in the workflow file instead of referenced via ${{ secrets.NAME }}.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 19
+    },
+    {
+      "rule_id": "SECRET-001",
+      "severity": "CRITICAL",
+      "title": "Possible hardcoded secret: Hardcoded credential-like string",
+      "detail": "A value matching a credential pattern was found directly in the workflow file instead of referenced via ${{ secrets.NAME }}.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 26
+    },
+    {
+      "rule_id": "TRIGGER-001",
+      "severity": "CRITICAL",
+      "title": "pull_request_target checking out untrusted PR head",
+      "detail": "This workflow trigger runs with access to repo secrets even for fork PRs, and appears to check out the PR's head ref. This is a known pattern for secret exfiltration / arbitrary code execution from a malicious fork.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 0
+    },
+    {
+      "rule_id": "SUPPLYCHAIN-001",
+      "severity": "MEDIUM",
+      "title": "Unpinned third-party action: actions/checkout@main",
+      "detail": "Job 'deploy' uses 'actions/checkout@main', referenced by a mutable tag/branch ('main') rather than a pinned commit SHA. If the upstream tag is moved or the repo is compromised, malicious code could run in your pipeline unnoticed.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 0
+    },
+    {
+      "rule_id": "SUPPLYCHAIN-001",
+      "severity": "MEDIUM",
+      "title": "Unpinned third-party action: some-org/some-action@v1",
+      "detail": "Job 'deploy' uses 'some-org/some-action@v1', referenced by a mutable tag/branch ('v1') rather than a pinned commit SHA. If the upstream tag is moved or the repo is compromised, malicious code could run in your pipeline unnoticed.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 0
+    },
+    {
+      "rule_id": "SUPPLYCHAIN-001",
+      "severity": "MEDIUM",
+      "title": "Unpinned third-party action: another-org/deploy-action@master",
+      "detail": "Job 'deploy' uses 'another-org/deploy-action@master', referenced by a mutable tag/branch ('master') rather than a pinned commit SHA. If the upstream tag is moved or the repo is compromised, malicious code could run in your pipeline unnoticed.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 0
+    },
+    {
+      "rule_id": "PERM-001",
+      "severity": "MEDIUM",
+      "title": "No explicit `permissions:` block at workflow level",
+      "detail": "Without an explicit permissions block, GITHUB_TOKEN may default to broad read/write access. Best practice is to set 'permissions: {contents: read}' at the top level and elevate per-job only where needed.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 0
+    },
+    {
+      "rule_id": "RUNNER-001",
+      "severity": "MEDIUM",
+      "title": "Self-hosted runner referenced",
+      "detail": "Self-hosted runners on public repos are a known risk: a malicious fork PR (especially combined with pull_request_target) can execute arbitrary code on infrastructure you control. Verify this runner is not exposed to untrusted workflow triggers.",
+      "file": "/home/claude/test_repo/.github/workflows/vulnerable_deploy.yml",
+      "line": 0
+    }
+  ],
+  "finished_at": "2026-09-14T09:50:20.760886+00:00",
+  "summary": {
+    "CRITICAL": 4,
+    "HIGH": 0,
+    "MEDIUM": 5,
+    "LOW": 0
+  }
+}

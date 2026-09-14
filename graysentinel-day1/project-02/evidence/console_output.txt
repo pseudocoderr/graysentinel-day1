@@ -1,0 +1,20 @@
+======================================================================
+GraySentinel CI/CD Security Misconfiguration Auditor
+Static analysis of workflow YAML -- read-only, no pipeline execution.
+======================================================================
+[*] Scanning for GitHub Actions workflows under: /home/claude/test_repo
+[+] Found 2 workflow file(s)
+[*] Auditing /home/claude/test_repo/.github/workflows/clean_ci.yml
+[*] Auditing /home/claude/test_repo/.github/workflows/vulnerable_deploy.yml
+    [CRITICAL] SECRET-001: Possible hardcoded secret: AWS secret access key
+    [CRITICAL] SECRET-001: Possible hardcoded secret: AWS access key ID
+    [CRITICAL] SECRET-001: Possible hardcoded secret: Hardcoded credential-like string
+    [MEDIUM] SUPPLYCHAIN-001: Unpinned third-party action: actions/checkout@main
+    [MEDIUM] SUPPLYCHAIN-001: Unpinned third-party action: some-org/some-action@v1
+    [MEDIUM] SUPPLYCHAIN-001: Unpinned third-party action: another-org/deploy-action@master
+    [MEDIUM] PERM-001: No explicit `permissions:` block at workflow level
+    [CRITICAL] TRIGGER-001: pull_request_target checking out untrusted PR head
+    [MEDIUM] RUNNER-001: Self-hosted runner referenced
+
+[+] Reports written to ../evidence/audit_report.json and ../evidence/audit_report.md
+[+] Summary: {'CRITICAL': 4, 'HIGH': 0, 'MEDIUM': 5, 'LOW': 0}

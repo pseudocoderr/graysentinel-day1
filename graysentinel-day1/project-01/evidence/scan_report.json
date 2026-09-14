@@ -1,0 +1,39 @@
+{
+  "target": "localhost",
+  "started_at": "2026-09-14T09:48:31.108172+00:00",
+  "hosts": {
+    "localhost": {
+      "ip": "127.0.0.1",
+      "open_ports": [
+        8000
+      ],
+      "services": {
+        "8000": {
+          "scheme": "http",
+          "status": 200,
+          "server_header": "SimpleHTTP/0.6 Python/3.12.3",
+          "title": "GraySentinel Lab Target",
+          "technologies": [
+            "WordPress",
+            "Nginx"
+          ],
+          "notable_paths": [
+            {
+              "path": "/robots.txt",
+              "status": 200
+            },
+            {
+              "path": "/.well-known/security.txt",
+              "status": 200
+            },
+            {
+              "path": "/admin",
+              "status": 301
+            }
+          ]
+        }
+      }
+    }
+  },
+  "finished_at": "2026-09-14T09:48:31.392825+00:00"
+}

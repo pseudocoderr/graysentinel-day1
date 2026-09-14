@@ -1,0 +1,13 @@
+======================================================================
+GraySentinel Attack-Surface Mapper
+Authorized use only. Do not run against systems you do not own
+or do not have explicit written permission to test.
+======================================================================
+[*] Starting attack surface mapping for: localhost
+
+[*] Phase 2: Port scanning localhost (127.0.0.1)
+[+] Open ports on localhost: [8000]
+[*] Phase 3: Fingerprinting localhost:8000 -> SimpleHTTP/0.6 Python/3.12.3
+[*] Phase 4: Endpoint discovery on localhost:8000
+
+[+] Reports written to ../evidence/scan_report.json and ../evidence/scan_report.md
