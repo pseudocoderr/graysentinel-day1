@@ -1,18 +1,18 @@
-# Attack Surface Report: localhost
+# Attack Surface Report: scanme.nmap.org
 
-_Scan window: 2026-09-14T09:48:31.108172+00:00 -> 2026-09-14T09:48:31.392825+00:00_
+_Scan window: 2026-09-14T10:42:05.411513+00:00 -> 2026-09-14T10:42:18.786604+00:00_
 
 
-## localhost (127.0.0.1)
-**Open ports:** 8000
+## scanme.nmap.org (45.33.32.156)
+**Open ports:** 22, 80
 
-### Port 8000
+### Port 22
+- open TCP port, not HTTP(S) or did not respond to GET
+### Port 80
 - Scheme: `http`
 - Status: `200`
-- Server header: `SimpleHTTP/0.6 Python/3.12.3`
-- Page title: GraySentinel Lab Target
-- Detected tech: WordPress, Nginx
+- Server header: `Apache/2.4.7 (Ubuntu)`
+- Page title: Go ahead and ScanMe!
+- Detected tech: Apache
 - Notable paths:
-  - `/robots.txt` -> HTTP 200
-  - `/.well-known/security.txt` -> HTTP 200
-  - `/admin` -> HTTP 301
+  - `/.htaccess` -> HTTP 403

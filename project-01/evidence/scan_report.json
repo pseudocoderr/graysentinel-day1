@@ -1,39 +1,34 @@
 {
-  "target": "localhost",
-  "started_at": "2026-09-14T09:48:31.108172+00:00",
+  "target": "scanme.nmap.org",
+  "started_at": "2026-09-14T10:42:05.411513+00:00",
   "hosts": {
-    "localhost": {
-      "ip": "127.0.0.1",
+    "scanme.nmap.org": {
+      "ip": "45.33.32.156",
       "open_ports": [
-        8000
+        22,
+        80
       ],
       "services": {
-        "8000": {
+        "22": {
+          "note": "open TCP port, not HTTP(S) or did not respond to GET"
+        },
+        "80": {
           "scheme": "http",
           "status": 200,
-          "server_header": "SimpleHTTP/0.6 Python/3.12.3",
-          "title": "GraySentinel Lab Target",
+          "server_header": "Apache/2.4.7 (Ubuntu)",
+          "title": "Go ahead and ScanMe!",
           "technologies": [
-            "WordPress",
-            "Nginx"
+            "Apache"
           ],
           "notable_paths": [
             {
-              "path": "/robots.txt",
-              "status": 200
-            },
-            {
-              "path": "/.well-known/security.txt",
-              "status": 200
-            },
-            {
-              "path": "/admin",
-              "status": 301
+              "path": "/.htaccess",
+              "status": 403
             }
           ]
         }
       }
     }
   },
-  "finished_at": "2026-09-14T09:48:31.392825+00:00"
+  "finished_at": "2026-09-14T10:42:18.786604+00:00"
 }
